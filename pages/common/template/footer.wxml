@@ -1,0 +1,11 @@
+<view class="footer">
+    <view class="footer__links">
+        <navigator url="http://www.qsxw.gov.cn/" class="footer__link">潜山新闻</navigator>
+        <navigator url="https://www.qss.gov.cn/" class="footer__link">潜山政府</navigator>
+    </view>
+    <view class="footer__text">
+      <view>Copyright © 2011-2018</view>
+      <view>All Right Reserved Powered by 潜山新闻网版权所有</view>
+      <view>中共潜山市委宣传部 主办 潜山市融媒体中心 承办</view>
+      </view>
+</view>

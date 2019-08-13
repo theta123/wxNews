@@ -1,0 +1,77 @@
+<import src="../common/template/newstitle.wxml"/>
+
+<view>
+<!--handler-->
+  <view class='header'>
+      <view class='header-panel one-px-border'>
+        <block wx:for='{{headerTitleName}}' wx:key='{{item.nameID}}'>
+          <view data-id='{{item.nameID}}' data-url='{{item.nameUrl}}' data-newstype='{{item.newsType}}' class="header-title {{item.nameID == tapID? 'header-title-active':''}}" bindtap='headerTitleClick'>
+            {{item.name}}
+          </view>
+        </block>
+      </view>
+  </view>
+  <!--间隔-->
+  <view class="nav-blank"></view>
+  <!-- swiper -->
+  <view>
+      <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{swpPic}}" wx:key="*this">
+          <swiper-item  bindtap='viewDetail' data-newsurl='{{item.url}}'>
+            <image class="swiper-item" src="{{item.thumbnail_pic_s}}"  mode="aspectFill"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <!-- 横向列表 -->
+  
+  <view>
+    <view>
+      <view class="flex-wrp">
+        <navigator wx:for-items="{{hlist1}}" wx:key="{{item.id}}">
+          <view id="{{item.id}}" class="flex-item">
+            <image class="img" src="{{item.icon}}"/>
+            <text class="text">{{item.name}}</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+
+<!--    
+  <view>
+    <block wx:for="{{ news }}" wx:key="id">
+      <template is="{{ 'newsStyle' + item.style }}" data="{{ ...item }}" />
+    </block>
+  </view>
+-->
+
+
+<view class="container news-list">
+  <block wx:for="{{news}}">
+    <view class="news-item" data-newsurl='{{item.url}}' data-newstitle='{{item.title}}' data-newsauthor='{{item.author_name}}' bindtap="viewDetail">
+		<view>
+		  <image class="list-image" src="{{item.thumbnail_pic_s}}" mode="aspectFill"/>
+		</view>
+      <view class="news-text">
+        <text class="news-title">{{item.title}}</text>
+        <view class="news-stamp">
+          <text>{{item.author_name}}</text>
+          <text>{{item.date}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+
+  <!--末端版权相关-->
+  <include src="../common/template/footer.wxml"/>
+
+
+</view>

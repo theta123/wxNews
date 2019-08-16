@@ -3,11 +3,10 @@
     "pages/first/first",
     "pages/second/second",
     "pages/third/third",
-    "pages/index/index",
     "pages/logs/logs",
-    "pages/first/pages/scroll-view/scroll-view",
     "pages/first/pages/swiper/swiper",
-    "pages/first/pages/detail/detail"
+    "pages/first/pages/detail/detail",
+    "pages/second/pages/video/video"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,34 +15,28 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "color": "#6495ED",
+    "selectedColor": "#4169E1",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/first/first",
         "text": "潜山新闻",
-        "iconPath": "images/icon_API.png",
-        "selectedIconPath": "images/icon_API_HL.png"
+        "iconPath": "images/bar_news.png",
+        "selectedIconPath": "images/bar_news_HL.png"
       },
       {
         "pagePath": "pages/second/second",
         "text": "潜山TV",
-        "iconPath": "images/icon_cloud.png",
-        "selectedIconPath": "images/icon_cloud_HL.png"
+        "iconPath": "images/bar_tv.png",
+        "selectedIconPath": "images/bar_tv_HL.png"
       },
       {
         "pagePath": "pages/third/third",
         "text": "个人中心",
-        "iconPath": "images/icon_component.png",
-        "selectedIconPath": "images/icon_component_HL.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "first",
-        "iconPath": "images/icon_API.png",
-        "selectedIconPath": "images/icon_API_HL.png"
+        "iconPath": "images/bar_personal.png",
+        "selectedIconPath": "images/bar_personal_HL.png"
       }
     ]
   },

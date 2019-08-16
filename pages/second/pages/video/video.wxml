@@ -1,0 +1,2 @@
+<!--pages/second/pages/video/video.wxml-->
+<video id="videoId" style="height:240px;width:320px;" wx:if='{{videoUrl}}' src='{{videoUrl}}'> </video>

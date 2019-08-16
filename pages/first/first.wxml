@@ -51,23 +51,41 @@
   </view>
 -->
 
-
-<view class="container news-list">
-  <block wx:for="{{news}}">
-    <view class="news-item" data-newsurl='{{item.url}}' data-newstitle='{{item.title}}' data-newsauthor='{{item.author_name}}' bindtap="viewDetail">
-		<view>
-		  <image class="list-image" src="{{item.thumbnail_pic_s}}" mode="aspectFill"/>
-		</view>
-      <view class="news-text">
-        <text class="news-title">{{item.title}}</text>
-        <view class="news-stamp">
-          <text>{{item.author_name}}</text>
-          <text>{{item.date}}</text>
+  <!--
+  <view class="container news-list">
+    <block wx:for="{{news}}">
+      <view class="news-item" data-newsurl='{{item.url}}' data-newstitle='{{item.title}}' data-newsauthor='{{item.author_name}}' bindtap="viewDetail">
+      <view>
+        <image class="list-image" src="{{item.thumbnail_pic_s}}" mode="aspectFill"/>
+      </view>
+        <view class="news-text">
+          <text class="news-title">{{item.title}}</text>
+          <view class="news-stamp">
+            <text>{{item.author_name}}</text>
+            <text>{{item.date}}</text>
+          </view>
         </view>
       </view>
-    </view>
-  </block>
-</view>
+    </block>
+  </view>
+  -->
+
+  <view class='content-list'>
+    <block wx:for='{{news}}' wx:key='{{item.newsID}}' wx:if="{{news && news.length > 0}}">
+      <view class='list-item' bindtap='viewDetail' data-newsurl='{{item.url}}' data-newstitle='{{item.title}}' data-newsauthor='{{item.author_name}}'>
+              <view class='list-item-content one-px-border'>
+                <view class='list-item-left'>
+                  <image src='{{item.thumbnail_pic_s}}'></image>
+                </view>
+                <view class='list-item-right'>
+                  <view class='article-title'>{{item.title}}</view>
+                  <view class='article-source'>{{item.author_name}}</view>
+                  <view class='article-editTime'>{{item.date}}</view>
+                </view>
+              </view>
+      </view>
+    </block>
+  </view>
 
 
   <!--末端版权相关-->

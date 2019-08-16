@@ -1,8 +1,8 @@
 const app = getApp()
 const appKey = 'fc35d7872c25744ab4669c7d9dbcf15e' // 用于访问新闻接口的appKey
-//const request = require('../../utils/request.js')
+const request = require('../../utils/request.js')
 const extractArticleInfo = require('./utils/getArticleTime.js')
-//const shuffle = require('./utils/shuffle.js')
+const shuffle = require('./utils/shuffle.js')
 
 Page({
 
@@ -27,6 +27,7 @@ Page({
       { name: '健康', nameID: '2019013', newsType: 'guoji' },
       { name: '专题', nameID: '2019014', newsType: 'guoji' }
     ],
+    tapID: 201901,
     // swiper
     swpPic: [],
     indicatorDots: true,
@@ -41,17 +42,17 @@ Page({
       {
         id:'t1',
         name:'阳光政务',
-        icon:'../../images/icon_API.png'
+        icon:'../../images/icon_councils.png'
       },
       {
         id: 't2',
         name: '走进潜山',
-        icon: '../../images/icon_API.png'
+        icon: '../../images/icon_travel.png'
       },
       {
         id: 't3',
-        name: '人大在线',
-        icon: '../../images/icon_API.png'
+        name: '聚焦专题',
+        icon: '../../images/icon_special.png'
       }
     ],
     news: []
@@ -63,7 +64,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    this.setSwpArticle(that, 'top');
+    this.setSwpArticle(that, 'keji');
     this.getNewsList(that,'keji');
   },
 
@@ -79,6 +80,13 @@ Page({
    */
   onReachBottom: function () {
     
+  },
+
+  // headerBar 点击
+  headerTitleClick: function (e) {
+    this.setData({ tapID: e.target.dataset.id })
+    //this.renderPage(e.currentTarget.dataset.newstype, false)
+    this.getNewsList(this,e.currentTarget.dataset.newsType)
   },
 
   setSwpArticle:function(that, newsType) {
@@ -129,12 +137,6 @@ Page({
     })
   },
 
-  // headerBar 点击
-  headerTitleClick: function (e) {
-    this.setData({ tapID: e.target.dataset.id })
-    this.renderPage(e.currentTarget.dataset.newstype, false)
-  },
-
   //跳转到新闻详情页
   viewDetail: function (e) {
     let newsUrl = e.currentTarget.dataset.newsurl || ''
@@ -145,41 +147,43 @@ Page({
     })
   },
 
+
   renderPage: function (newsType, isRefresh, calllBack) {
     if (!isRefresh) {
       wx.showLoading({
         title: '加载中'
-      })
-      request({ url: `https://v.juhe.cn/toutiao/index?type=${newsType}&key=${appKey}`, newstype: newsType })
-        .then(res => {
-          wx.hideLoading()
-          let { articleList, swpPic } = extractArticleInfo(res.result.data)
-          this.setData({
-            contentNewsList: articleList,
-            swpPic
-          })
-          if (calllBack) {
-            calllBack()
-          }
-        })
-        .catch(error => {
-          wx.hideLoading()
-        })
-    } else {
-      // 数组随机排序，模拟刷新
-      let contentNewsListTemp = shuffle(JSON.parse(JSON.stringify(this.data.contentNewsList)))
-      /* contentNewsListTemp.sort(() => {
-        return Math.random() > 0.5 ? -1 : 1
-      }) */
-      setTimeout(() => {
+      }
+    )
+    request({ url: `https://v.juhe.cn/toutiao/index?type=${newsType}&key=${appKey}`, newstype: newsType })
+      .then(res => {
+        wx.hideLoading()
+        let { articleList, swpPic } = extractArticleInfo(res.result.data)
         this.setData({
-          contentNewsList: contentNewsListTemp
+          contentNewsList: articleList,
+          swpPic
         })
         if (calllBack) {
           calllBack()
         }
-      }, 2000)
-    }
+      })
+      .catch(error => {
+        wx.hideLoading()
+      })
+     } else {
+       // 数组随机排序，模拟刷新
+       let contentNewsListTemp = shuffle(JSON.parse(JSON.stringify(this.data.contentNewsList)))
+       /* contentNewsListTemp.sort(() => {
+         return Math.random() > 0.5 ? -1 : 1
+       }) */
+       setTimeout(() => {
+         this.setData({
+           contentNewsList: contentNewsListTemp
+         })
+         if (calllBack) {
+           calllBack()
+         }
+       }, 2000)
+     }
   },
 
 })

@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
 
   /**
@@ -13,100 +15,28 @@ Page({
     // 列表清单
     list: [
       {
-        id: 'view',
-        name: '视图容器',
+        id: 'councils',
+        name: '阳光政务',
         open: false,
-        pages: ['view', 'scroll-view', 'swiper', 'movable-view', 'cover-view']
+        pages: ['权威发布', '公告公示', '政策文件', '政务要闻']
       },
       {
-        id: 'content',
-        name: '基础内容',
+        id: 'activity',
+        name: '活动专题',
         open: false,
-        pages: ['text', 'icon', 'progress', 'rich-text']
+        pages: ['活动报名', '我的参与', '参与历史']
       },
       {
-        id: 'form',
-        name: '表单组件',
+        id: 'collection',
+        name: '我的收藏',
         open: false,
-        pages: ['button', 'checkbox', 'form', 'input', 'label', 'picker', 'picker-view', 'radio', 'slider', 'switch', 'textarea', 'editor']
+        pages: ['阳光政务', '走进潜山', '聚焦专题', '潜山新闻', '潜山TV']
       },
       {
-        id: 'nav',
-        name: '导航',
+        id: 'setting',
+        name: '设置',
         open: false,
-        pages: ['navigator']
-      },
-      {
-        id: 'media',
-        name: '媒体组件',
-        open: false,
-        pages: ['image', 'audio', 'video', 'camera']
-      },
-      {
-        id: 'map',
-        name: '地图',
-        open: false,
-        pages: ['map']
-      },
-      {
-        id: 'canvas',
-        name: '画布',
-        open: false,
-        pages: ['canvas']
-      },
-      {
-        id: 'open',
-        name: '开放能力',
-        open: false,
-        pages: ['ad', 'open-data', 'web-view']
-      },
-      {
-        id: 'view',
-        name: '视图容器',
-        open: false,
-        pages: ['view', 'scroll-view', 'swiper', 'movable-view', 'cover-view']
-      },
-      {
-        id: 'content',
-        name: '基础内容',
-        open: false,
-        pages: ['text', 'icon', 'progress', 'rich-text']
-      },
-      {
-        id: 'form',
-        name: '表单组件',
-        open: false,
-        pages: ['button', 'checkbox', 'form', 'input', 'label', 'picker', 'picker-view', 'radio', 'slider', 'switch', 'textarea', 'editor']
-      },
-      {
-        id: 'nav',
-        name: '导航',
-        open: false,
-        pages: ['navigator']
-      },
-      {
-        id: 'media',
-        name: '媒体组件',
-        open: false,
-        pages: ['image', 'audio', 'video', 'camera']
-      },
-      {
-        id: 'map',
-        name: '地图',
-        open: false,
-        pages: ['map']
-      },
-      {
-        id: 'canvas',
-        name: '画布',
-        open: false,
-        pages: ['canvas']
-      },
-      {
-        id: 'open',
-        name: '开放能力',
-        open: false,
-        pages: ['ad', 'open-data', 'web-view']
+        pages: ['授权信息','收货地址','清除缓存']
       }
     ]
 

@@ -1,0 +1,48 @@
+<view>
+  <!--handler-->
+  <view class='header'>
+      <view class='header-panel one-px-border'>
+        <block wx:for='{{navTitleName}}' wx:key='{{item.nameID}}'>
+          <view data-id='{{item.nameID}}' data-url='{{item.nameUrl}}' data-newstype='{{item.newsType}}' class="header-title {{item.nameID == currentIndexNav? 'header-title-active':''}}" bindtap='navTitleClick'>
+            {{item.name}}
+          </view>
+        </block>
+      </view>
+  </view>
+
+  <!--间隔-->
+  <view class="nav-blank"></view>
+
+  <!-- swiper -->
+  <view class="slides">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{swiperList}}" wx:key="*this">
+          <swiper-item  bindtap='watchDetail' data-newsurl='{{item.url}}'>
+            <image class="swiper-item" src="{{item.imgSrc}}"  mode="aspectFill"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+  <!-- 视频列表 -->
+	<view class="video_wrap">
+		<block wx:for="{{videosList}}" wx:key="{{index}}">
+      <view  class="video_item"  bindtap="watchDetail" data-videourl='{{item.url}}' data-videotitle='{{item.commentCount}}' data-videoauthor='{{item.author_name}}'>
+        <!-- 图片容器 -->
+        <view class="video_img">
+          <!-- 图片 -->
+          <image mode="widthFix" src="{{item.imgSrc}}"></image>
+          <!-- 播放量+评论量容器 -->
+            <!-- 评论量 -->
+            <view class="comment_count"></view>
+        </view>
+        <!-- 标题 -->
+        <view class="video_title">
+          {{item.commentCount}} 
+        </view>
+      </view>
+		</block>
+	</view>
+
+</view>

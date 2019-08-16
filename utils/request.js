@@ -1,4 +1,4 @@
-//const mockData = require('../mocks/index.js')
+const mockData = require('../mocks/index.js')
 
 const request = options => {
   const { url, method } = options

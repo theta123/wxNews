@@ -1,16 +1,13 @@
+  <!--用户头像-->
 <view>
 
-  <view class="background">
-  <!--用户头像-->
-    <view class="userinfo">
-      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <image src="../../images/mine_bg.png" class="account-bg"></image>
   </view>
 
+  <view class="separate"></view>
 
 
   <!--列表的收拉效果-->

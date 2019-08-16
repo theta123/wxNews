@@ -1,4 +1,5 @@
-// pages/detail/detail.js
+// // pages/second/pages/detail/detail.js
+
 const request = require('../../../../utils/request.js')
 const util = require('../../../../utils/util.js')
 var WxParse = require('../../../../components/wxParse/wxParse.js')
@@ -19,6 +20,7 @@ Page({
    */
   onLoad: function (options) {
     let { newsUrl } = options
+    console.log(newsUrl)
     request({
       url: newsUrl
     }).then(res => {

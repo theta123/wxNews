@@ -1,6 +1,22 @@
 /* user info */
-.background{
-  background-color:#87CEFA;
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #7c97ca;
+}
+.account-bg {
+  width: 100%;
+  height: 150rpx;
+}
+.userinfo-avatar {
+  width: 108rpx;
+  height: 108rpx;
+  margin-top: 100rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #fff;
 }
 
 /* 列表 */
